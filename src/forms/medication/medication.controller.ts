@@ -16,6 +16,8 @@ export class MedicationController {
 
  @Post()
  async create(@Body() medicationFormDto:MedicationEntity){
+   if(medicationFormDto.id)
+      return await this.medicationService.update(medicationFormDto.id, medicationFormDto);
     return await this.medicationService.create(medicationFormDto);
  }
  

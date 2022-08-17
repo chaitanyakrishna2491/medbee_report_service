@@ -16,6 +16,9 @@ export class IndicatorController {
 
  @Post()
  async create(@Body() indicatorFormDto:IndicatorEntity){
+   if(indicatorFormDto.id)
+      return await this.indicatorService.update(indicatorFormDto.id,indicatorFormDto);
+   else
     return await this.indicatorService.create(indicatorFormDto);
  }
  

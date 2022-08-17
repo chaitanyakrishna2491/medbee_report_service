@@ -16,6 +16,9 @@ export class RiskController {
 
  @Post()
  async create(@Body() riskFormDto:RiskEntity){
+   if(riskFormDto.id)
+      return await this.riskService.update(riskFormDto.id,riskFormDto);
+   else
     return await this.riskService.create(riskFormDto);
  }
  

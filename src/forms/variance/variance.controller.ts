@@ -16,6 +16,9 @@ export class VarianceController {
 
  @Post()
  async create(@Body() varianceFormDto:VarianceEntity){
+   if(varianceFormDto.id)
+      return await this.varianceService.update(varianceFormDto.id,varianceFormDto)
+   else
     return await this.varianceService.create(varianceFormDto);
  }
  
