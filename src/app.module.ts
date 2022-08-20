@@ -21,6 +21,7 @@ import { ReportModule } from './forms/report/report.module';
       host:'127.0.0.1',
       port:3306,
       username:'root',
+      password:'password',
       database:'medbee',
       entities:[RiskEntity,VarianceEntity,IndicatorEntity,MedicationEntity],
       synchronize:true,
