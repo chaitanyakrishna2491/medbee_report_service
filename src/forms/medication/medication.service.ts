@@ -55,6 +55,8 @@ export class MedicationEntity{
     createdAt: string;
     @Column({nullable:true})
     formType:string;
+    @Column({nullable:true})
+    lastUpdatedAt:string
 }
 
 @Injectable()

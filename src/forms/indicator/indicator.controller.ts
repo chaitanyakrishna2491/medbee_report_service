@@ -1,25 +1,26 @@
-import { Body, Controller, Get, Param, Post, Res } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post, Res } from "@nestjs/common";
 import { IndicatorEntity, IndicatorService } from "./indicator.service";
 
 @Controller('form/indicator')
 export class IndicatorController {
- constructor(private indicatorService: IndicatorService) {}
- @Get()
- async getAll(){
-    return await this.indicatorService.findAll();
- }
- @Get(":id")
- async getOne(@Param() id:number) {
-    const response = await this.indicatorService.findOne(id);
-    return response;
- }
+   constructor(private indicatorService: IndicatorService) { }
+   @Get()
+   async getAll() {
+      return await this.indicatorService.findAll();
+   }
+   @Get(":id")
+   async getOne(@Param() id: number) {
+      const response = await this.indicatorService.findOne(id);
+      return response;
+   }
 
- @Post()
- async create(@Body() indicatorFormDto:IndicatorEntity){
-   if(indicatorFormDto.id)
-      return await this.indicatorService.update(indicatorFormDto.id,indicatorFormDto);
-   else
-    return await this.indicatorService.create(indicatorFormDto);
- }
- 
+   @Post()
+   async create(@Body() indicatorFormDto: IndicatorEntity) {
+      return await this.indicatorService.create(indicatorFormDto);
+   }
+   @Delete(":id")
+   async delete(@Param() id: number) {
+      return await this.indicatorService.delete(id);
+   }
+
 }

@@ -64,6 +64,8 @@ export class RiskEntity {
     createdAt: string;
     @Column({nullable:true})
     formType:string;
+    @Column({nullable:true})
+    lastUpdatedAt:string
 
 }
 
@@ -82,11 +84,11 @@ export class RiskService {
     create(risk: RiskEntity) {
         return this.riskRepository.save(risk);
     }
-    async update(id: number, risk: RiskEntity) {
-        await this.riskRepository.update(id, risk);
+    update(id: number, risk: RiskEntity) {
+        return this.riskRepository.update(id, risk);
     }
-    async delete(id: number) {
-        await this.riskRepository.delete(id);
+    delete(id: number) {
+        return this.riskRepository.delete(id);
     }
 }
 

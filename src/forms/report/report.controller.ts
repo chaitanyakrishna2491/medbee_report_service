@@ -16,7 +16,7 @@ export class ReportController {
     let varianceForms = await this.varianceService.findAll();
     let finalArray = [].concat(riskForms).concat(indicatorForms).concat(medicationForms).concat(varianceForms);
     finalArray = _.orderBy(finalArray, function(record) {
-        return new Date(record.createdAt);
+        return new Date(record.lastUpdatedAt);
       },['desc']);
     return finalArray;
  }

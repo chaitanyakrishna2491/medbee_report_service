@@ -39,7 +39,9 @@ export class IndicatorEntity {
     @Column({nullable:true})
     createdAt: string;
     @Column({nullable:true})
-    formType:string
+    formType: string
+    @Column({nullable:true})
+    lastUpdatedAt:string
 }
 
 @Injectable()
