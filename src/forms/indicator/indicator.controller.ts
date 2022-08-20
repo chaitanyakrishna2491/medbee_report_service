@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Res } from "@nestjs/common";
 import { IndicatorEntity, IndicatorService } from "./indicator.service";
 
-@Controller('form/indicator')
+@Controller('form/surgical')
 export class IndicatorController {
    constructor(private indicatorService: IndicatorService) { }
    @Get()
