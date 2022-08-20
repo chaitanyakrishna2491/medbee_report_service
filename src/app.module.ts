@@ -22,7 +22,7 @@ import { ReportModule } from './forms/report/report.module';
       port:3306,
       username:'root',
       password:'password',
-      database:'medd_bee',
+      database:'medbee',
       entities:[RiskEntity,VarianceEntity,IndicatorEntity,MedicationEntity],
       synchronize:true,
       namingStrategy:new SnakeNamingStrategy()

@@ -7,53 +7,53 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 export class MedicationEntity{
     @PrimaryGeneratedColumn()
     id:number;
-    @Column()
+    @Column({nullable:true})
     enteredBy:string;
-    @Column()
+    @Column({nullable:true})
     facility:string;
-    @Column()
+    @Column({nullable:true})
     departmentsInvolved:string;
-    @Column()
+    @Column({nullable:true})
     eventNo:string;
-    @Column()
+    @Column({nullable:true})
     eventDate:string;
-    @Column()
+    @Column({nullable:true})
     locationReportingMedError:string;
-    @Column()
+    @Column({nullable:true})
     time:string;
-    @Column()
+    @Column({nullable:true})
     room:string;
-    @Column()
+    @Column({nullable:true})
     shift:string;
-    @Column()
+    @Column({nullable:true})
     processes:string;
-    @Column()
+    @Column({nullable:true})
     safteyProcesses:string;
-    @Column()
+    @Column({nullable:true})
     signigicance:string;
-    @Column()
+    @Column({nullable:true})
     physNotified:string;
-    @Column()
+    @Column({nullable:true})
     notifiedPhysician:string;
-    @Column()
+    @Column({nullable:true})
     errorDetectedTime:string;
-    @Column()
+    @Column({nullable:true})
     drugRoute:string;
-    @Column()
+    @Column({nullable:true})
     listOfDrugs:string;
-    @Column()
+    @Column({nullable:true})
     actionTaken:string;
-    @Column()
+    @Column({nullable:true})
     employeeWitnesses:string;
-    @Column()
+    @Column({nullable:true})
     physicianWitnesses:string;
-    @Column()
+    @Column({nullable:true})
     otherWitnesses:string;
-    @Column()
+    @Column({nullable:true})
     comments:string;
-    @Column()
+    @Column({nullable:true})
     createdAt: string;
-    @Column()
+    @Column({nullable:true})
     formType:string;
 }
 

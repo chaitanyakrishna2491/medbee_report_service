@@ -8,37 +8,37 @@ import { Column, Entity, PrimaryGeneratedColumn, Repository } from "typeorm";
 export class IndicatorEntity {
     @PrimaryGeneratedColumn()
     id: number;
-    @Column()
+    @Column({nullable:true})
     enteredBy: string;
-    @Column()
+    @Column({nullable:true})
     departmentsInvolved: string;
-    @Column()
+    @Column({nullable:true})
     eventDate: string;
-    @Column()
+    @Column({nullable:true})
     eventNo: string;
-    @Column()
+    @Column({nullable:true})
     facility: string;
-    @Column()
+    @Column({nullable:true})
     shift: string;
-    @Column()
+    @Column({nullable:true})
     time: string;
-    @Column()
+    @Column({nullable:true})
     locationOfEvent: string;
-    @Column()
+    @Column({nullable:true})
     room: string;
-    @Column()
+    @Column({nullable:true})
     eventType: string;
-    @Column()
+    @Column({nullable:true})
     parameters: string;
-    @Column()
+    @Column({nullable:true})
     delayTime: string;
-    @Column()
+    @Column({nullable:true})
     complications: string;
-    @Column()
+    @Column({nullable:true})
     comments: string;
-    @Column()
+    @Column({nullable:true})
     createdAt: string;
-    @Column()
+    @Column({nullable:true})
     formType:string
 }
 

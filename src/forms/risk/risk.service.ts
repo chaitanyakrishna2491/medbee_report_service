@@ -1,67 +1,68 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
+import { Exclude } from "class-transformer";
+import { IsNull, Repository } from "typeorm";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class RiskEntity {
     @PrimaryGeneratedColumn()
     id: number;
-    @Column()
+    @Column({nullable:true})
     enteredBy: string;
-    @Column()
+    @Column({nullable:true})
     facility: string;
-    @Column()
+    @Column({nullable:true})
     departmentReportingFall: string;
-    @Column()
+    @Column({nullable:true})
     departmentsInvolved: string;
-    @Column()
+    @Column({nullable:true})
     eventNo: string;
-    @Column()
+    @Column({nullable:true})
     eventDate: string;
-    @Column()
+    @Column({nullable:true})
     locationOfFall: string;
-    @Column()
+    @Column({nullable:true})
     room: string;
-    @Column()
+    @Column({nullable:true})
     time: string;
-    @Column()
+    @Column({nullable:true})
     shift: string;
-    @Column()
+    @Column({nullable:true})
     typeOfFall: string;
-    @Column()
+    @Column({nullable:true})
     contributingFactors: string;
-    @Column()
+    @Column({nullable:true})
     typeOfInjury: string;
-    @Column()
+    @Column({nullable:true})
     significance: string;
-    @Column()
+    @Column({nullable:true})
     physNotified: string;
-    @Column()
+    @Column({nullable:true})
     notifiedPhysician: string;
-    @Column()
+    @Column({nullable:true})
     newOrderReceived: string;
-    @Column()
+    @Column({nullable:true})
     interventionInPlacePriorToFall: string;
-    @Column()
+    @Column({nullable:true})
     medicationList: string;
-    @Column()
+    @Column({nullable:true})
     postFallActionsTaken: string;
-    @Column()
+    @Column({nullable:true})
     lastFallAssessment: string;
-    @Column()
+    @Column({nullable:true})
     notifiedPerson: string;
-    @Column()
+    @Column({nullable:true})
     employeeWitnesses: string;
-    @Column()
+    @Column({nullable:true})
     physicianWitnesses: string;
-    @Column()
+    @Column({nullable:true})
     otherWitnesses: string;
-    @Column()
+    @Column({nullable:true})
     comments: string;
-    @Column()
+    @Column({nullable:true})
     createdAt: string;
-    @Column()
+    @Column({nullable:true})
     formType:string;
 
 }
@@ -70,7 +71,7 @@ export class RiskEntity {
 export class RiskService {
     constructor(
         @InjectRepository(RiskEntity)
-        private riskRepository: Repository<RiskEntity>
+        public riskRepository: Repository<RiskEntity>
     ) { }
     findAll(): Promise<RiskEntity[]> {
         return this.riskRepository.find();
