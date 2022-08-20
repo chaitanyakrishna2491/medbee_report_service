@@ -62,7 +62,7 @@ export class IndicatorService {
     async update(id: number, risk: IndicatorEntity) {
         await this.indicatorRepository.update(id, risk);
     }
-    async delete(id: number) {
-        await this.indicatorRepository.delete(id);
+    delete(id: number) {
+        return this.indicatorRepository.delete(id);
     }
 }

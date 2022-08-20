@@ -78,7 +78,7 @@ export class MedicationService{
         await this.medicationRepository.update(id,medication);
     }
     async delete(id:number){
-        await this.medicationRepository.delete(id);
+        return this.medicationRepository.delete({id:id});
     }
 }
 
