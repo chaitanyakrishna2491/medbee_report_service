@@ -10,7 +10,7 @@ export class VarianceController {
    }
    @Get(":id")
    async getOne(@Param() id: number) {
-      const response = await this.varianceService.findOne(1);
+      const response = await this.varianceService.findOne(id);
       return response;
    }
 
