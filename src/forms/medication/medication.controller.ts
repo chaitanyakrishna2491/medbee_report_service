@@ -9,7 +9,7 @@ export class MedicationController {
       return await this.medicationService.findAll();
    }
    @Get(":id")
-   async getOne(@Param() id: number) {
+   async getOne(@Param('id') id: number) {
       const response = await this.medicationService.findOne(id);
       return response;
    }

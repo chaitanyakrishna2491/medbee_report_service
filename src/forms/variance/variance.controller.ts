@@ -9,7 +9,7 @@ export class VarianceController {
       return await this.varianceService.findAll();
    }
    @Get(":id")
-   async getOne(@Param() id: number) {
+   async getOne(@Param('id') id: number) {
       const response = await this.varianceService.findOne(id);
       return response;
    }

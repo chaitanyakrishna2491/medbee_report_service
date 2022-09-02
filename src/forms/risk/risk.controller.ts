@@ -9,7 +9,7 @@ export class RiskController {
       return await this.riskService.findAll();
    }
    @Get(":id")
-   async getOne(@Param() id: number) {
+   async getOne(@Param('id') id: number) {
       const response = await this.riskService.findOne(id);
       return response;
    }

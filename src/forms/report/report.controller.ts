@@ -5,10 +5,10 @@ import { MedicationService } from "../medication/medication.service";
 import { VarianceService } from "../variance/variance.service";
 import * as _ from "lodash";
 
-@Controller('report/getAllForms')
+@Controller('report')
 export class ReportController {
  constructor(private riskService: RiskService, private indicatorService: IndicatorService, private medicationService: MedicationService, private varianceService:VarianceService) {}
- @Get()
+ @Get('getAllForms')
  async getAll(){
     let riskForms = await this.riskService.findAll();
     let indicatorForms = await this.indicatorService.findAll();
@@ -20,15 +20,36 @@ export class ReportController {
       },['desc']);
     return finalArray;
  }
- @Get(":id")
- async getOne(@Param() id:number) {
-    const response = await this.riskService.findAll();
-    return response;
- }
 
- @Post()
- async create(@Body() riskFormDto:RiskEntity){
-    return await this.riskService.create(riskFormDto);
+ @Get('getCount')
+ async getCount(){
+   let riskForms = await this.riskService.findAll();
+   let indicatorForms = await this.indicatorService.findAll();
+   let medicationForms = await this.medicationService.findAll();
+   let varianceForms = await this.varianceService.findAll();
+   let finalData = [
+      {
+          reportType: "Variance Safety",
+          count: varianceForms.length,
+          lastReported: varianceForms.length > 0 ? varianceForms[0].lastUpdatedAt : "-"
+      },
+      {
+          reportType: "Risk",
+          count: riskForms.length,
+          lastReported: riskForms.length > 0 ? riskForms[0].lastUpdatedAt : "-"
+      },
+      {
+          reportType: "Medication Safety",
+          count: medicationForms.length,
+          lastReported: medicationForms.length > 0 ? medicationForms[0].lastUpdatedAt : "-"
+      },
+      {
+          reportType: "Surgical",
+          count: indicatorForms.length,
+          lastReported: indicatorForms.length > 0 ? indicatorForms[0].lastUpdatedAt : "-"
+      }
+  ]
+  return finalData
  }
  
 }

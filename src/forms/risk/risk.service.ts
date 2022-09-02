@@ -78,8 +78,9 @@ export class RiskService {
     findAll(): Promise<RiskEntity[]> {
         return this.riskRepository.find();
     }
-    findOne(id: number): Promise<RiskEntity> {
-        return this.riskRepository.findOneBy({ id: id });
+    async findOne(id: number): Promise<RiskEntity> {
+        const data = await this.riskRepository.findOneBy({ id: id });
+        return data;
     }
     create(risk: RiskEntity) {
         return this.riskRepository.save(risk);

@@ -9,7 +9,7 @@ export class IndicatorController {
       return await this.indicatorService.findAll();
    }
    @Get(":id")
-   async getOne(@Param() id: number) {
+   async getOne(@Param('id') id: number) {
       const response = await this.indicatorService.findOne(id);
       return response;
    }
